@@ -9,6 +9,8 @@
 
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/stylesheets/slj.css" />
 
+		<link rel="icon" href="images/favicon.png" type="image/png">
+
 		<?php // pre_dump($_SERVER); ?>
 
 		<?php wp_head(); ?>

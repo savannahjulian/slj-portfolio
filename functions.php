@@ -56,7 +56,8 @@ function get_projects ( ) {
 			'post_type' => 'work',
 			'posts_per_page' => -1,
 			'orderby' => 'menu_order',
-			'order' => 'ASC'
+			'order' => 'ASC',
+			'post_status' => 'publish'
 		);
 
 		$query = new WP_Query( $params );
@@ -117,7 +118,7 @@ function get_next_project ( $current ) {
 	if ( $next = get_transient("project_" . $current->ID . "_next" ) ) {
 		return $next;
 	} else {
-		$next = $wpdb->get_row("SELECT wp_posts.* FROM wp_posts WHERE 1=1 AND wp_posts.post_type = 'work' AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'private') AND wp_posts.menu_order < $current->menu_order ORDER BY wp_posts.menu_order DESC LIMIT 1");
+		$next = $wpdb->get_row("SELECT wp_posts.* FROM wp_posts WHERE 1=1 AND wp_posts.post_type = 'work' AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'private') AND wp_posts.menu_order > $current->menu_order ORDER BY wp_posts.menu_order ASC LIMIT 1");
 
 		set_transient("project_" . $current->ID . "_next" , $next , 0 );
 
@@ -133,7 +134,7 @@ function get_previous_project ( $current ) {
 	if ( $prev = get_transient("project_" . $current->ID . "_previous" ) ) {
 		return $prev;
 	} else {
-		$prev = $wpdb->get_row("SELECT wp_posts.* FROM wp_posts WHERE 1=1 AND wp_posts.post_type = 'work' AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'private') AND wp_posts.menu_order > $current->menu_order ORDER BY wp_posts.menu_order ASC LIMIT 1");
+		$prev = $wpdb->get_row("SELECT wp_posts.* FROM wp_posts WHERE 1=1 AND wp_posts.post_type = 'work' AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'private') AND wp_posts.menu_order < $current->menu_order ORDER BY wp_posts.menu_order DESC LIMIT 1");
 
 		set_transient("project_" . $current->ID . "_previous" , $prev , 0 );
 

@@ -23,6 +23,10 @@ section.blog{
 	.title{
 		float: left;
 
+		@media screen and ( max-width: 960px){
+			float: none;
+		}
+
 		a{
 			border-bottom: none;
 		}
@@ -32,6 +36,10 @@ section.blog{
 		float: right;
 		color: $midGrey;
 		//margin: 1em 0;
+
+		@media screen and ( max-width: 960px){
+			float: none;
+		}
 	}
 
 	.post-body{
@@ -64,9 +72,17 @@ section.blog{
 }
 
 .side-bar{
-	margin-top: 7em;
+	margin-top: 3em;
 
 	h3{
 		margin: 1em 0;
 	}
+
+	@media screen and ( max-width: 960px){
+		display: none;
+	}
+}
+
+.side-bar-more{
+	margin-top: 0;
 }

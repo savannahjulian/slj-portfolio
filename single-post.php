@@ -20,8 +20,10 @@
 				</div>
 
 				<div class="column push-1 col-3">
-					<h3>recent posts</h3>
-					<?php get_sidebar(); ?>
+					<div class="side-bar-more">
+						<h3>recent posts</h3>
+						<?php get_sidebar(); ?>
+					</div>
 				</div>
 
 			</div>

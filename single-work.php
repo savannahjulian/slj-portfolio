@@ -77,8 +77,8 @@
 
 					<?
 						//clog( array( "Current" , $post->ID ) );
-						$prev = get_next_project( $post );
-						$next = get_previous_project( $post );
+						$prev = get_previous_project( $post );
+						$next = get_next_project( $post );
 					?>
 
 					<? if ( $prev ) { ?>
