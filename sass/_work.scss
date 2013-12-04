@@ -2,6 +2,35 @@
 	Work
 */
 
+.project{
+
+
+	.container{
+		@media screen and ( max-width: 480px){
+			width: auto;
+			padding: 0;
+		}
+
+	}
+
+	.column{
+		@media screen and ( max-width: 480px){
+			margin: 0 0 0.25em 0;
+			padding: 0;
+		}
+
+		&.main{
+			@media screen and ( max-width: 480px){
+				width: 90%;
+				margin: 0 auto;
+			}
+
+		}
+
+	}
+
+}
+
 section.work-feed {
 	margin: $page_margin;
 	margin-bottom: 2em;
@@ -121,7 +150,11 @@ section.project{
 
 .work-pagination {
 
-	margin-top: 2em;
+	margin: 2em auto;
+
+	@media screen and ( max-width: 480px){
+		width: 90%;
+	}
 
 	.project-previous {
 		float: left;
@@ -139,4 +172,5 @@ section.project{
 	padding: 1.5em;
 	position: relative;
 	top: 0;
+	opacity: 0.9;
 }

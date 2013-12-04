@@ -1,6 +1,6 @@
 				<section class="contact">
 					<div class="container stamp">
-						<div class="column col-7 centered">
+						<div class="column col-7 tablet-full centered">
 							<p class="large">
 								<?php echo get_field('contact','option'); ?>
 							</p>

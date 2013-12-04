@@ -21,7 +21,7 @@
 					<div class="container clearfix">
 						<!--<img src="<?= get_field('logo','option')["sizes"]["medium"]; ?>" alt="<?php bloginfo('title'); ?>" />-->
 
-						<!--div class="column col-12">
+						<div class="column col-12">
 							<div class="animation">
 
 								<div class="cat">
@@ -31,7 +31,7 @@
 								</div>
 
 							</div>
-						</div-->
+						</div>
 
 						<div class="column col-9">
 							<p class="large">

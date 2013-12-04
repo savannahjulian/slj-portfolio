@@ -4,7 +4,7 @@
 
 			<? $fields = get_fields( $post->ID ); ?>
 
-			<div class="column col-4 main space tablet-half">
+			<div class="column col-4 main space tablet-full">
 				<h1>
 					<? echo $fields["project_name"]; ?>
 				</h1>
@@ -30,11 +30,7 @@
 				</div>
 			</div>
 
-			<div class="column col-1">
-				&nbsp;
-			</div>
-
-			<div class="column col-7 tablet-half hero space">
+			<div class="column col-7 tablet-full hero space push-1">
 				<img src="<? echo $fields["hero_image"]["sizes"]["work"]; ?>" />
 			</div>
 
@@ -76,18 +72,20 @@
 				</div>
 			<? } ?>
 
-			<div class="column col-12 work-pagination clearfix">
-				<?
-					$prev = get_next_post();
-					$next = get_previous_post();
-				?>
-				<? if ( $prev ) { ?>
-					<a class="project-previous" href="<?= get_permalink( $prev->ID ); ?>"><?= $prev->post_title ?></a>
-				<? } ?>
+			<div class="column col-12 clearfix">
+				<div class="work-pagination">
+					<?
+						$prev = get_next_post();
+						$next = get_previous_post();
+					?>
+					<? if ( $prev ) { ?>
+						<a class="project-previous" href="<?= get_permalink( $prev->ID ); ?>"><?= $prev->post_title ?></a>
+					<? } ?>
 
-				<? if ( $next ) { ?>
-					<a class="project-next" href="<?= get_permalink($next->ID); ?>"><?= $next->post_title ?></a>
-				<? } ?>
+					<? if ( $next ) { ?>
+						<a class="project-next" href="<?= get_permalink($next->ID); ?>"><?= $next->post_title ?></a>
+					<? } ?>
+				</div>
 			</div>
 			
 		</div>
