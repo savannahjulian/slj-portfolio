@@ -22,9 +22,9 @@
 							<?php // clog($fields["thumbnail"]); ?>
 							<img src="<?= $project["fields"]["thumbnail"]["sizes"]["work-thumb-retina"]; ?>" />
 						</div>
-						<!--div class="project-name">
+						<div class="project-name">
 							<?php echo $project["fields"]["project_name"]; ?>
-						</div-->
+						</div>
 					</a>
 				</div>
 			</div>
