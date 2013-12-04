@@ -106,58 +106,49 @@ function is_pjax ( ) {
     return false;
 }
 
+
 /*
 	Filters & Hooks
 */
 
-// Post Link Attributes
-/*
-add_filter('next_posts_link_attributes', 'posts_link_attributes');
-add_filter('previous_posts_link_attributes', 'posts_link_attributes');
-
-function posts_link_attributes() {
-	return 'ajax="true"';
-}
-*/
-
-/*
-
-// Work Queries: Show all results
-
-add_action( 'pre_get_posts' , 'extend_work_results' );
-
-function extend_work_results ( $query ) {
-	if ( $query->query["post_type"] === "work" ) {
-		$query->set( 'posts_per_page' , -1 );
-	}
-}
-
-// Homepage Query: Show only Work items
-
-add_action( 'pre_get_posts' , 'work_items_only' );
-
-function work_items_only( $query ) {
-	if ( is_home() && $query->is_main_query() ) {
-		$query->set( 'post_type', 'work' );
-	}
-}
-
-*/
-
 function get_next_project ( $current ) {
-	if ( $next = get_transient("project_" . $current . "_next" ) ) {
+	global $wpdb;
+
+	if ( $next = get_transient("project_" . $current->ID . "_next" ) ) {
 		return $next;
 	} else {
-		// Set a Transient, before returning...
-		$wpdb->get_row("SELECT wp_posts.id FROM wp_posts  WHERE 1=1 AND wp_posts.post_type = 'work' AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'private') AND wp_posts.menu_order > $current ORDER BY wp_posts.menu_order DESC")->id;
+		$next = $wpdb->get_row("SELECT wp_posts.* FROM wp_posts WHERE 1=1 AND wp_posts.post_type = 'work' AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'private') AND wp_posts.menu_order < $current->menu_order ORDER BY wp_posts.menu_order DESC LIMIT 1");
+
+		set_transient("project_" . $current->ID . "_next" , $next , 0 );
+
+		// clog( array( "Next" => $next , "Current" => $current ) );
+
+		return $next;
 	}
 }
 
 function get_previous_project ( $current ) {
-	if ( $prev = get_transient("project_" . $current . "_previous" ) ) {
+	global $wpdb;
+
+	if ( $prev = get_transient("project_" . $current->ID . "_previous" ) ) {
 		return $prev;
 	} else {
-		// Set a Transient, before returning...
-		$wpdb->get_row("SELECT wp_posts.id FROM wp_posts  WHERE 1=1 AND wp_posts.post_type = 'work' AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'private') AND wp_posts.menu_order < $current ORDER BY wp_posts.menu_order DESC")->id;
+		$prev = $wpdb->get_row("SELECT wp_posts.* FROM wp_posts WHERE 1=1 AND wp_posts.post_type = 'work' AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'private') AND wp_posts.menu_order > $current->menu_order ORDER BY wp_posts.menu_order ASC LIMIT 1");
+
+		set_transient("project_" . $current->ID . "_previous" , $prev , 0 );
+
+		// clog( array( "Previous" => $prev , "Current" => $current ) );
+
+		return $prev;
 	}
 }
+
+function scrub_links ( $id ) {
+	delete_transient( "project_" . $id . "_next" );
+	delete_transient( "project_" . $id . "_previous" );
+
+	get_transient("project_" . $id . "_previous" );
+	get_transient("project_" . $id . "_next" );
+}
+
+add_action( "save_post" , "scrub_links" );

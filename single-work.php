@@ -74,16 +74,19 @@
 
 			<div class="column col-12 clearfix">
 				<div class="work-pagination">
+
 					<?
-						$prev = get_next_post();
-						$next = get_previous_post();
+						//clog( array( "Current" , $post->ID ) );
+						$prev = get_next_project( $post );
+						$next = get_previous_project( $post );
 					?>
+
 					<? if ( $prev ) { ?>
-						<a class="project-previous" href="<?= get_permalink( $prev->ID ); ?>"><?= $prev->post_title ?></a>
+						<a class="project-previous" href="<?= get_permalink( $prev ); ?>">Previous</a>
 					<? } ?>
 
 					<? if ( $next ) { ?>
-						<a class="project-next" href="<?= get_permalink($next->ID); ?>"><?= $next->post_title ?></a>
+						<a class="project-next" href="<?= get_permalink( $next ); ?>">Next</a>
 					<? } ?>
 				</div>
 			</div>
