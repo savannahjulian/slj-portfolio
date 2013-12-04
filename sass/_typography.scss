@@ -1,0 +1,62 @@
+/* TYPOGRAPHY */
+
+body{
+	font-family: $sans;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5em;
+}
+
+h1{
+	font-family: $sans;
+	font-size: 2.8em;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1em;
+	margin-top: 0;
+}
+
+h3{
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1em;
+}
+
+h6{
+	text-transform: uppercase;
+	font-weight: 400;
+	font-family: $sans;
+	font-style: normal;
+	letter-spacing: 1px;
+	color: $midGrey;
+	font-size: 0.8em;
+	margin: 0;
+
+	a:hover{
+		//color: adjust-lightness($midGrey,-20%);
+		color: $pink;
+	}
+}
+
+.large{
+	font-family: $serif;
+	font-size: 2em;
+	font-style: normal;
+	font-weight: 300;
+	letter-spacing: 1px;
+	line-height: 1.25em;
+
+	@media screen and ( max-width: 480px){
+			font-size: 1.4em;
+		}
+}
+
+
+::selection {
+	background: $pink; /* Safari */
+	}
+::-moz-selection {
+	background: $pink; /* Firefox */
+}

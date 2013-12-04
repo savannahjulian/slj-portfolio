@@ -1,0 +1,126 @@
+/*
+	Work
+*/
+
+section.work-feed {
+	margin: $page_margin;
+	margin-bottom: 2em;
+
+	@media screen and ( max-width: 480px){
+			margin: 0;
+		}
+
+	.work-tile {
+		display: block;
+		border: none;
+		margin-bottom: 2em;
+
+		@media screen and ( max-width: 480px){
+			margin-bottom: 0.25em;
+		}
+	}
+
+	.container{
+		@media screen and ( max-width: 480px){
+			width: auto;
+			padding: 0;
+		}
+
+	}
+
+	.column{
+		@media screen and ( max-width: 480px){
+			margin: 0;
+		}
+
+	}
+}
+
+section.project{
+	margin: $page_margin;
+}
+
+.line{
+	width: 20px;
+	border-bottom: 2px solid $pink;
+	margin: 2em 0;
+}
+
+
+// Mostly Required for Slides JS...
+
+#slideshow {
+	overflow: hidden;
+	position: relative;
+
+	.slideshow-controls {
+		position: absolute;
+		right: 1em;
+		bottom: 1em;
+
+	}
+
+	.slides {
+		position: relative;
+
+		.slide {
+			float: left;
+			img {
+				width: 100%;
+			}
+		}
+	}
+
+	.slides-nav{
+
+
+		.slide-next{
+			right: 0;
+			background-image: url('../images/next.png');
+		}
+
+		.slide-prev{
+			right: 43px;
+			background-image: url('../images/prev.png');
+		}
+
+		.slide-next, .slide-prev{
+			background-color: $darkGrey;
+			opacity: 0.7;
+			cursor: pointer;
+			display: block;
+			width: 40px;
+			height: 40px;
+			position: absolute;
+			top: 0;
+			text-indent: -9999px;
+
+			&:hover{
+				background-color: $pink;
+				//opacity: 1;
+			}
+		}
+	}
+}
+
+.work-pagination {
+
+	margin-top: 2em;
+
+	.project-previous {
+		float: left;
+	}
+
+	.project-next {
+		float: right;
+	}
+}
+
+
+.project-name{
+	background: $black;
+	color: white;
+	padding: 1.5em;
+	position: relative;
+	top: 0;
+}

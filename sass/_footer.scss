@@ -1,0 +1,41 @@
+//FOOTER STYLES
+
+.contact{
+	background: $grey;
+	text-align: center;
+	padding: 4.5em 0;
+	color: $darkGrey;
+	
+}
+
+.social{
+	display: block;
+	//background: $black;
+	color: white;
+	font-family: $sans;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	background: $black url('../images/pattern.png');
+	background-size: 828px;
+	padding: 2em;
+	
+	a{
+		float: right;
+		margin-left: 3em; 
+		border-bottom: none;
+		color: $grey;
+		font-size: 0.8em;
+		letter-spacing: 2px;
+
+		&:hover{
+			color: $pink;
+		}
+	}
+
+
+	.stamp{
+		//padding: 2em 0;
+		//background: url('../images/stamp_main.png') 0 center no-repeat;
+		//background-size: 110px;
+	}
+}

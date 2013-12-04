@@ -1,0 +1,51 @@
+// HEADER STYLES
+
+.header {
+	background: $black;
+	color: white;
+	//text-align: center;
+	padding-top: 4.5em;
+
+	.cat{
+		background: url('../images/icon_main.png') center center no-repeat;
+		margin-bottom: 3.5em;
+		background-size: 70px;
+		height: 70px;
+		width: 70px;
+	}
+
+	.moving{
+		background: url('../images/animation.gif') center center no-repeat;
+		background-size: 70px;
+		display: none;
+	}
+
+	.animation:hover{
+		.cat{
+			display: none;
+		}
+
+		.moving{
+			display: block;
+		}
+	}
+
+	.name{
+		font-size: 1.8em;
+		font-family: $serif;
+		margin-bottom: 1em;
+		//font-weight: 800;
+	}
+
+	p{
+		&.large{
+			margin: 0;
+		}
+	}
+
+	.large{
+		padding-bottom: 2em;
+		font-weight: 300;
+	}
+
+}
