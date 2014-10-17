@@ -34,7 +34,7 @@
 				<img src="<? echo $fields["hero_image"]["sizes"]["work"]; ?>" />
 			</div>
 
-			<? if ( count($fields["slideshow"]) ) { ?>
+			<? if ( $fields["slideshow"] ) { ?>
 				<div class="column col-12 space" id="slideshow">
 					<div class="slides">
 						<? foreach ( $fields["slideshow"] as $slide ) { ?>
@@ -50,7 +50,7 @@
 				</div>
 			<? } ?>
 
-			<? if ( count( $fields["detail_images"] ) ) { ?>
+			<? if ( $fields["detail_images"] ) { ?>
 				<? foreach ( $fields["detail_images"] as $image ) { ?>
 
 					<div class="column col-12 detail-image space">
@@ -60,7 +60,7 @@
 				<? } ?>
 			<? } ?>
 
-			<? if ( count( $fields["additional_images"] ) ) { ?>
+			<? if ( $fields["additional_images"] ) { ?>
 				<div class="additional_images">
 					<? foreach ( $fields["additional_images"] as $image ) { ?>
 
